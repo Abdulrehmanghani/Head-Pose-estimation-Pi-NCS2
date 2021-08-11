@@ -1,0 +1,5 @@
+2021-08-11 09:51:27,625  app-headpose-vid  [INFO]  Raspberry Pi: Head Pose
+
+2021-08-11 09:51:34,851  app-headpose-vid  [INFO]  Camera Info: (1280, 720) - 30.021
+2021-08-11 09:51:42,401  app-headpose-vid  [INFO]  Reached the end of Video source
+2021-08-11 09:51:42,848  app-headpose-vid  [INFO]  Process done
