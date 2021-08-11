@@ -23,7 +23,6 @@ class FaceDetector:
             inp_size=1, out_size=1, 
             num_requests=2, plugin=None):
         """Initialize Face detector object"""
-        print(xml_path)
         self.__net = Network()
         self.plugin, (self.B, self.C, self.H, self.W) = self.__net.load_model(
                 xml_path, device, inp_size, out_size, num_requests, plugin=plugin)

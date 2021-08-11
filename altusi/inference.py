@@ -54,7 +54,7 @@ class Network:
         :param plugin: Plugin for specified device
         :return:  Shape of input layer
         """
-
+        print(model)
         model_xml = model
         model_bin = os.path.splitext(model_xml)[0] + ".bin"
         # Plugin initialization for specified device
@@ -70,6 +70,7 @@ class Network:
 
         # Read IR
         log.info("Reading IR...")
+        print(model_xml,model_bin)
         self.net = IENetwork(model=model_xml, weights=model_bin)
         log.info("Loading IR to the plugin...")
 

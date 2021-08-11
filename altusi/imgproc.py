@@ -36,6 +36,8 @@ def resizeByHeight(image, height=720):
         out_image : numpy.array
             output resized image
     """
+    print(type(image))
+    exit()
     H, W = image.shape[:2]
     width = int(1. * W * height / H + 0.5)
     out_image = cv.resize(image, (width, height), interpolation=cv.INTER_CUBIC)
@@ -90,9 +92,10 @@ def cameraCalibrate(capturer, size=None, by_height=False):
     """
 
     fps = capturer.get(cv.CAP_PROP_FPS)
-
+    print("clibrate")
     while True:
         _, frame = capturer.read()
+        print("ing")
         if _:
             if size:
                 if by_height:
