@@ -1,5 +1,5 @@
 import sys
-import cv2
+import numpy as np
 import time
 import logging as log
 
@@ -10,7 +10,7 @@ import altusi.visualizer as vis
 
 from altusi.facedetector import FaceDetector
 from altusi.headposer import HeadPoser
-
+import cv2
 
 def build_argparser():
     """
@@ -87,13 +87,12 @@ def infer_on_stream(args):
     # Load the video capture
     feed.load_data()
     frame_count = 0
+    fps = []
     start_inf = time.time()
-    
     # Read from the video capture 
     for flag, frame in feed.next_batch():
         if not flag:
             break
-        key_pressed = cv2.waitKey(60)
         frame_count += 1
         try:
             # Run inference on the models     
@@ -104,24 +103,28 @@ def infer_on_stream(args):
                     x1, y1, x2, y2 = bbox
                     face_image = frame[y1:y2, x1:x2]
                     yaw, pitch, roll = poser.estimatePose(face_image)
-
+                    
                     cpoint = [(x1+x2)//2, (y1+y2)//2]
                     frame = hvis.draw(frame, cpoint, (yaw, pitch, roll))
-            _prx_t = time.time() - start_inf
+            fps.append(time.time() - start_inf)
 
             #frame = vis.plotInfo(frame, 'Raspberry Pi - FPS: {:.3f}'.format(1/_prx_t))
             #frame = cv2.cvtColor(np.asarray(frame), cv2.COLOR_BGR2RGB)
-            if args.display:
-                cv2.imshow('Computer pointer control', cv2.resize(frame,(600,400)))
-            #mouse_controller.move(gaze_vector[0], gaze_vector[1])
+            cv2.imwrite("out/imagenn"+str(frame_count)+".jpg",frame)
+           # if args.display:
+            #    cv2.imshow('Computer pointer control', cv2.resize(frame,(600,40)))
+            if frame_count == 10:
+                break
         except Exception as e:
             log.warning(str(e) + " for frame " + str(frame_count))
+            if frame_count == 10:
+                break
             continue
         # Display the resulting frame
         
      
     end_inf = time.time() - start_inf
-    log.info("\nTotal loading time: {}\nTotal inference time: {}\nFPS: {}".format(end_load, end_inf,frame_count/end_inf))
+    log.info("\nTotal loading time: {}\nTotal inference time: {}\nFPS: {}".format(end_load,end_inf,frame_count/end_inf))
     
     # Release the capture
     feed.close()
