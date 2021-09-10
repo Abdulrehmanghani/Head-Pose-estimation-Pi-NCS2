@@ -49,7 +49,7 @@ Openvino toolkit is built to felicitate the highly accurate models of computer v
   <tbody>
     <tr>
       <th>2</th>
-      <td>Tiny YOLOv 3</td>
+      <td>Tiny YOLO v3</td>
       <td>23.4288</td>
       <td>7.96264</td>
       <td>3.8875</td> 
