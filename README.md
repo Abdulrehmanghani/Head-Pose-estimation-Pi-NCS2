@@ -58,3 +58,47 @@ Openvino toolkit is built to felicitate the highly accurate models of computer v
   </tbody>  
 </table>
 
+# Model Load Time:
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model name</th>
+      <th>CPU</th>
+      <th>CPU+NCS2</th>
+      <th>Raspberry Pi(Desktop OS) + NCS2</th>
+      <th>Raspberry Pi(Headless OS) + NCS2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SSD MobileNet v1</td>
+      <td>0.1097</td>
+      <td>2.6432</td>
+      <td>9.8460</td> 
+      <td>9.910</td> 
+    </tr>
+  </tbody>    
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>SSD MobileNet v2</td>
+      <td>0.1256</td>
+      <td>2.9364</td>
+      <td>15.64</td> 
+      <td>16.0970</td> 
+    </tr>
+  </tbody>  
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Tiny YOLO v3</td>
+      <td>0.0768</td>
+      <td>2.3918</td>
+      <td>5.6864</td> 
+      <td>--</td> 
+    </tr>
+  </tbody>  
+</table>
+
