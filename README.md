@@ -28,7 +28,7 @@ Openvino toolkit is built to felicitate the highly accurate models of computer v
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>0</th>
       <td>SSD MobileNet v1</td>
       <td>23.4562</td>
       <td>10.6245</td>
