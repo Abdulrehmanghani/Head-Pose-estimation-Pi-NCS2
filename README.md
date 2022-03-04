@@ -1,4 +1,4 @@
-# Accelerate the Inference on the Edge
+# Head Pose Estimation
 
 Computer vision is not just affiliated with breaking down the images and videos into pixels, but also making these pixels to represent a class. There are a lot of Computer vision models developed in TensorFlow for object detection and image segmentation. Recent developments in deep learning have observed remarkable performance in the AI industry with highly accurate computer vision models and it is observed that computational power is getting cheaper. But data-driven decisions in deep learning and cloud computing based systems have limitations in deployment at edge devices in real-world scenarios. Since we cannot bring edge devices to the data-centers, We can't deploy a server/GPU at the edge where we can deploy our applications at low cost embedded devices, so we need to bring AI to the edge on low cost embedded devices.
 
